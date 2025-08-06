@@ -2,9 +2,10 @@
 from flask import Flask, request, jsonify
 from email_client import send_email
 from flask_cors import CORS
+from config import BACKEND_URL
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://backend-node-js-biteandenjoy.onrender.com", "http://localhost:3000"]}})
+CORS(app, resources={r"/*": {"origins": [BACKEND_URL, "http://localhost:3000"]}})
 
 @app.route("/send-email", methods=["POST"])
 
